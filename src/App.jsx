@@ -61,12 +61,12 @@ const App = () => {
           <nav className="relative mx-auto flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-xl p-2">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <div className="p-2 px-2.5 rounded-xl bg-orange text-white font-medium">
+              <div className="p-1.5 px-2 rounded-xl bg-orange text-white font-medium">
                 CF
               </div>
 
               <div>
-                <h2 className="text-lg font-medium leading-none">
+                <h2 className="text-base font-medium leading-none">
                   Content Flow Launch
                 </h2>
                 <p className="text-xs leanon text-white/40">
@@ -124,7 +124,7 @@ const App = () => {
           {/* Heading */}
           <motion.h2
             variants={fadeUp}
-            className="text-5xl md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+            className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
           >
             Your Content{" "}
             <span className="block bg-gradient-to-r from-orange to-lightOrange bg-clip-text text-transparent">
@@ -211,9 +211,6 @@ const App = () => {
                       },
                     },
                   }}
-                  whileHover={{
-                    y: -25,
-                  }}
                   className="w-full text-center"
                 >
                   <motion.h4
@@ -254,7 +251,7 @@ const App = () => {
       </section>
 
       {/* Portfolio */}
-      <section className="w-full p-8 px-4 lg:px-24 xl:px-36 relative">
+      <section className="w-full p-12 px-4 lg:px-24 xl:px-36 relative">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -348,7 +345,7 @@ const App = () => {
       </section>
 
       {/* Process */}
-      <section className="w-full p-8 px-4 lg:px-24 xl:px-36">
+      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -462,7 +459,7 @@ const App = () => {
       </section>
 
       {/* Pricing */}
-      <section className="w-full p-8 px-4 lg:px-24 xl:px-36">
+      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -638,7 +635,7 @@ const App = () => {
       </section>
 
       {/* Lead Magnet */}
-      <section className="w-full p-8 px-4 lg:px-24 xl:px-36">
+      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -761,7 +758,7 @@ const App = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="w-full p-8 px-4 lg:px-24 xl:px-36">
+      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -993,7 +990,7 @@ const App = () => {
       </section>
 
       {/* Founder Note */}
-      <section className="w-full p-8 px-4 lg:px-24 xl:px-36">
+      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -1091,7 +1088,7 @@ const App = () => {
       </section>
 
       {/* Book a Call */}
-      <section className="w-full p-8 px-4 lg:px-24 xl:px-36">
+      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -1295,7 +1292,7 @@ const App = () => {
       </section>
 
       {/* Contact */}
-      <section className="w-full p-8 px-4 lg:px-24 xl:px-36">
+      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
