@@ -864,7 +864,6 @@ const App = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
           className="flex flex-col items-center gap-6"
         >
