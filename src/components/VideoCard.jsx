@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const VideoCard = ({
+  title,
   thumbnail,
   youtubeId,
   videoType,
@@ -12,6 +13,7 @@ const VideoCard = ({
     <motion.div
       onClick={() =>
         setActiveVideo({
+          title,
           id: youtubeId,
           type: videoType,
         })
