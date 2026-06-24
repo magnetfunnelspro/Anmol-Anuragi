@@ -1,4 +1,6 @@
+import Lenis from "lenis";
 import React from "react";
+import { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import Cal from "@calcom/embed-react";
@@ -12,6 +14,36 @@ import Counter from "./components/Counter";
 import VideoCard from "./components/VideoCard";
 
 const App = () => {
+  const lenisRef = useRef(null);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      smoothWheel: true,
+    });
+
+    lenisRef.current = lenis;
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => lenis.destroy();
+  }, []);
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+
+    if (!section || !lenisRef.current) return;
+
+    lenisRef.current.scrollTo(section, {
+      duration: 1.5,
+    });
+  };
+
   const [activeVideo, setActiveVideo] = useState(null);
 
   const fadeUp = {
@@ -75,24 +107,43 @@ const App = () => {
               </div>
             </div>
 
-            {/* Truly Centered Nav */}
+            {/* Nav Links */}
             <div className="absolute left-1/2 -translate-x-1/2 hidden xl:flex items-center gap-8">
-              {["Portfolio", "Process", "Pricing", "Testimonials"].map(
-                (item) => (
-                  <button
-                    key={item}
-                    className="group relative text-white/80 hover:text-white transition-all duration-300"
-                  >
-                    {item}
+              {[
+                {
+                  label: "Portfolio",
+                  id: "portfolio",
+                },
+                {
+                  label: "Process",
+                  id: "process",
+                },
+                {
+                  label: "Pricing",
+                  id: "pricing",
+                },
+                {
+                  label: "Testimonials",
+                  id: "testimonials",
+                },
+              ].map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.id)}
+                  className="group relative text-white/80 hover:text-white transition-all duration-300"
+                >
+                  {item.label}
 
-                    <span className="absolute -bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-orange transition-all duration-300 group-hover:w-6"></span>
-                  </button>
-                ),
-              )}
+                  <span className="absolute -bottom-1 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-orange transition-all duration-300 group-hover:w-6" />
+                </button>
+              ))}
             </div>
 
             {/* CTA */}
-            <button className="p-2.5 px-4 rounded-xl text-white bg-orange z-10">
+            <button
+              onClick={() => scrollToSection("book-a-call")}
+              className="p-2.5 px-4 rounded-xl text-white bg-orange z-10"
+            >
               Book a Call
             </button>
           </nav>
@@ -144,11 +195,17 @@ const App = () => {
 
           {/* CTA */}
           <motion.div variants={fadeUp} className="flex gap-6">
-            <button className="p-4 px-6 rounded-xl text-white bg-orange">
+            <button
+              onClick={() => scrollToSection("portfolio")}
+              className="p-4 px-6 rounded-xl text-white bg-orange"
+            >
               View Portfolio
             </button>
 
-            <button className="p-4 px-6 rounded-xl border border-white/15 bg-white/5 backdrop-blur-md text-white transition-all duration-200 hover:bg-white/10">
+            <button
+              onClick={() => scrollToSection("book-a-call")}
+              className="p-4 px-6 rounded-xl border border-white/15 bg-white/5 backdrop-blur-md"
+            >
               Book a Call
             </button>
           </motion.div>
@@ -359,7 +416,10 @@ const App = () => {
       </section>
 
       {/* Portfolio */}
-      <section className="w-full p-12 px-4 lg:px-24 xl:px-36 relative">
+      <section
+        id="portfolio"
+        className="w-full p-12 px-4 lg:px-24 xl:px-36 relative"
+      >
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -447,7 +507,7 @@ const App = () => {
       </section>
 
       {/* Process */}
-      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
+      <section id="process" className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -561,7 +621,7 @@ const App = () => {
       </section>
 
       {/* Pricing */}
-      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
+      <section id="pricing" className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -641,7 +701,10 @@ const App = () => {
                 convert more clients.
               </p>
 
-              <button className="mt-8 w-full rounded-xl border border-white/20 bg-white/5 py-3">
+              <button
+                onClick={() => scrollToSection("book-call")}
+                className="mt-8 w-full rounded-xl border border-white/20 bg-white/5 p-4"
+              >
                 Get Started
               </button>
             </motion.div>
@@ -672,6 +735,7 @@ const App = () => {
                   "Sales Automation Setup",
                   "Call Booking Assistant",
                   "Personalized Growth Strategy",
+                  "Predictable Sales Pipeline",
                   "Weekly Strategy Calls",
                 ].map((feature) => (
                   <div key={feature} className="flex items-start gap-3">
@@ -687,7 +751,10 @@ const App = () => {
                 growth on autopilot.
               </p>
 
-              <button className="mt-8 w-full rounded-xl bg-orange py-3 text-white">
+              <button
+                onClick={() => scrollToSection("book-call")}
+                className="mt-8 w-full rounded-xl bg-orange p-4 text-white"
+              >
                 Get Started
               </button>
             </motion.div>
@@ -728,7 +795,10 @@ const App = () => {
                 </div>
               </div>
 
-              <button className="mt-8 w-full rounded-xl bg-orange py-3 text-white">
+              <button
+                onClick={() => scrollToSection("book-call")}
+                className="mt-8 w-full rounded-xl bg-orange p-4 text-white"
+              >
                 Book a Call
               </button>
             </motion.div>
@@ -860,7 +930,7 @@ const App = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
+      <section id="testimonials" className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -1278,7 +1348,7 @@ const App = () => {
       </section>
 
       {/* Book a Call */}
-      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
+      <section id="book-a-call" className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -1466,7 +1536,7 @@ const App = () => {
       </section>
 
       {/* Contact */}
-      <section className="w-full p-12 px-4 lg:px-24 xl:px-36">
+      <section id="contact" className="w-full p-12 px-4 lg:px-24 xl:px-36">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -1587,43 +1657,79 @@ const App = () => {
 
             {/* Links */}
             <div className="flex flex-wrap gap-6 text-white/60">
-              <a href="#portfolio">Portfolio</a>
-              <a href="#process">Process</a>
-              <a href="#pricing">Pricing</a>
-              <a href="#testimonials">Testimonials</a>
-              <a href="#contact">Contact</a>
+              <a
+                onClick={() => scrollToSection("portfolio")}
+                className="cursor-pointer"
+              >
+                Portfolio
+              </a>
+              <a
+                onClick={() => scrollToSection("process")}
+                className="cursor-pointer"
+              >
+                Process
+              </a>
+              <a
+                onClick={() => scrollToSection("pricing")}
+                className="cursor-pointer"
+              >
+                Pricing
+              </a>
+              <a
+                onClick={() => scrollToSection("testimonials")}
+                className="cursor-pointer"
+              >
+                Testimonials
+              </a>
+              <a
+                onClick={() => scrollToSection("contact")}
+                className="cursor-pointer"
+              >
+                Contact
+              </a>
             </div>
 
             {/* Socials */}
-            <div className="flex items-center gap-4">
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/[0.05]"
-              >
-                <i className="ri-instagram-line"></i>
-              </a>
-
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/[0.05]"
-              >
-                <i className="ri-linkedin-line"></i>
-              </a>
-
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/[0.05]"
-              >
-                <i className="ri-youtube-line"></i>
-              </a>
+            <div className="flex items-center justify-center gap-3">
+              {[
+                {
+                  icon: "ri-instagram-line",
+                  link: "https://instagram.com/contentflowlaunch",
+                },
+                {
+                  icon: "ri-linkedin-line",
+                  link: "#",
+                },
+                {
+                  icon: "ri-youtube-line",
+                  link: "#",
+                },
+              ].map((item) => (
+                <a
+                  key={item.icon}
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/[0.03] text-white/70 transition-all duration-300 hover:border-orange hover:bg-orange hover:text-white"
+                >
+                  <i className={item.icon} />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Bottom */}
           <div className="mt-8 border-t border-white/20 pt-6 text-sm text-center text-white/40 ">
             <p>
-              © {new Date().getFullYear()} Content Flow Launch. All rights
-              reserved.
+              Built & Designed for performance{" "}
+              <a
+                href="https://instagram.com/magnetfunnelspro/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/60"
+              >
+                @magnetfunnelspro
+              </a>
             </p>
           </div>
         </div>
