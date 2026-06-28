@@ -177,11 +177,11 @@ const App = () => {
             variants={fadeUp}
             className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
           >
-            A Predictable{" "}
+            Turn Attention{" "}
             <span className="block bg-gradient-to-r from-orange to-lightOrange bg-clip-text text-transparent">
-              Sales Pipeline
+              Into High-Ticket
             </span>{" "}
-            Through Content
+            Qualified Leads
           </motion.h2>
 
           {/* Sub Heading */}
@@ -243,7 +243,7 @@ const App = () => {
                   label: "Brands Served",
                 },
                 {
-                  value: 100,
+                  value: 300,
                   suffix: "M+",
                   label: "Views Generated",
                 },
@@ -334,9 +334,9 @@ const App = () => {
             variants={fadeUp}
             className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
           >
-            Process Behind
+            Process Behind{" "}
             <span className="block bg-gradient-to-r from-orange to-lightOrange bg-clip-text text-transparent">
-              Predictable Sales Pipeline
+              Client Acquisition System
             </span>
           </motion.h2>
 
@@ -456,8 +456,8 @@ const App = () => {
             variants={fadeUp}
             className="max-w-2xl text-center text-white/80"
           >
-            Each piece of content is crafted with one goal: helping the creators
-            and brands get more reach, engagement, and conversions.
+            Each piece of content is crafted with one goal: helping the coaches,
+            consultants and brands get more reach, leads, and conversions.
           </motion.p>
 
           {/* Videos */}
@@ -557,27 +557,31 @@ const App = () => {
               {[
                 {
                   number: "01",
-                  title: "Strategy & Positioning",
+                  title: "Onboarding Call",
                   description:
                     "We identify your offer, audience, and market positioning to create a content strategy that attracts the right people.",
+                  process: "Simple > Process",
                 },
                 {
                   number: "02",
                   title: "Content Production",
                   description:
                     "Our team transforms your ideas into high-converting content designed to build authority and capture attention.",
+                  process: "Simple > Process",
                 },
                 {
                   number: "03",
-                  title: "Sales Pipeline Setup",
+                  title: "Client Acquisition",
                   description:
                     "We build the systems, funnels, and lead capture mechanisms that turn viewers into qualified prospects.",
+                  process: "Simple > Process",
                 },
                 {
                   number: "04",
                   title: "Optimize & Scale",
                   description:
                     "Using performance data, we refine your content and pipeline to generate more leads, meetings, and revenue consistently.",
+                  process: "Simple > Process",
                 },
               ].map((step, index) => (
                 <motion.div
@@ -599,7 +603,7 @@ const App = () => {
 
                       {/* Number Badge */}
                       <div className="mb-4 flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange text-white font-medium shadow-[0_0_25px_rgba(234,109,53,0.3)]">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange text-white font-medium shadow-[0_0_25px_rgba(235,110,55,0.4)]">
                           {step.number}
                         </div>
 
@@ -608,9 +612,16 @@ const App = () => {
 
                       <h4 className="text-2xl font-medium">{step.title}</h4>
 
-                      <p className="mt-3 text-white/80 leading-relaxed">
+                      <p className="mt-2 text-white/80 leading-relaxed">
                         {step.description}
                       </p>
+
+                      {/* Bottom */}
+                      <div className="mt-4 flex items-center justify-between">
+                        <div className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/[0.05] px-4 p-2 text-sm text-white/60">
+                          {step.process}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -683,6 +694,7 @@ const App = () => {
                   "Unique Video Branding",
                   "Profile Optimization",
                   "Content Formatting",
+                  "Funnel Setup",
                   "World-Class Editing",
                   "Dedicated Social Media Manager",
                   "24/7 Chat Support",
@@ -716,7 +728,7 @@ const App = () => {
               className="relative rounded-xl border border-orange/40 bg-white/[0.05] backdrop-blur-xl p-8 shadow-[0_0_45px_rgba(234,109,53,0.15)]"
             >
               {/* Popular Badge */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-orange px-4 py-1 text-sm">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-orange p-1.5 px-4 text-sm">
                 Most Popular
               </div>
 
@@ -732,10 +744,11 @@ const App = () => {
                 {[
                   "Everything in Basic",
                   "Organic & Inorganic Lead Generation",
-                  "Sales Automation Setup",
+                  "Advance Funnel Setup",
                   "Call Booking Assistant",
                   "Personalized Growth Strategy",
-                  "Predictable Sales Pipeline",
+                  "Personal Branding",
+                  "Client Acquisition System",
                   "Weekly Strategy Calls",
                 ].map((feature) => (
                   <div key={feature} className="flex items-start gap-3">
@@ -966,8 +979,8 @@ const App = () => {
             variants={fadeUp}
             className="max-w-2xl text-center text-white/80"
           >
-            Real results from creators, coaches, and consultants who trusted us
-            to transform their content.
+            Real results from businesses, coaches, and consultants who trusted
+            us to transform their content.
           </motion.p>
 
           {/* Video Testimonials */}
@@ -1012,18 +1025,21 @@ const App = () => {
               <div className="mt-6 grid gap-6 lg:grid-cols-3">
                 {[
                   {
+                    best: "28.6K+ followers",
                     thumbnail: "/brands/anmol.jpg",
                     username: "anmol_type",
-                    niche: "Personal Branding",
-                    metric: "Authority Building",
+                    niche: "Creative Content",
+                    metric: "Personal Branding",
                   },
                   {
+                    best: "18.9K+ followers",
                     thumbnail: "/brands/creative-dood.jpg",
                     username: "creative_dood11",
                     niche: "Creative Content",
-                    metric: "Audience Growth",
+                    metric: "Client Acquisition",
                   },
                   {
+                    best: "280+ qualified leads",
                     thumbnail: "/brands/ash.jpg",
                     username: "ashcarrim",
                     niche: "Business & Marketing",
@@ -1050,7 +1066,7 @@ const App = () => {
 
                       {/* Badge */}
                       <div className="absolute top-4 left-4 p-0.5 px-2.5 pb-1.5 tracking-wider rounded-full border border-white/20 bg-black/40 backdrop-blur-md">
-                        <span className="text-xs text-white">Brand Built</span>
+                        <span className="text-xs text-white">{brand.best}</span>
                       </div>
                     </div>
 
@@ -1204,7 +1220,7 @@ const App = () => {
           <div className="mt-10 grid w-full gap-6 md:grid-cols-3">
             {[
               ["$50K+", "Revenue Generated"],
-              ["100M+", "Views Generated"],
+              ["300M+", "Views Generated"],
               ["98%", "Client Retention"],
             ].map(([value, label]) => (
               <motion.div
@@ -1272,7 +1288,7 @@ const App = () => {
                       {
                         image: "/brands/anmol.jpg",
                         name: "Anmol Anuragi",
-                        role: "Co-Founder",
+                        role: "Founder",
                       },
                       {
                         image: "/brands/creative-dood.jpg",
@@ -1314,32 +1330,30 @@ const App = () => {
               <div className="flex flex-col">
                 <i className="ri-double-quotes-l text-5xl text-orange/60" />
 
-                <p className="mt-4 text-lg leading-relaxed text-white/80">
-                  Most content today gets ignored. Not because it's bad—but
-                  because it lacks strategy, positioning, and emotional
-                  connection.
+                <p className="mt-2 text-lg leading-relaxed text-white/80">
+                  Most businesses don't have a client problem—they have a
+                  positioning problem. When people don't know, trust, or
+                  remember your brand, opportunities are lost.
                 </p>
 
                 <p className="mt-4 text-lg leading-relaxed text-white/80">
-                  That's why we built Content Flow Launch. Our goal isn't just
-                  to edit videos. It's to help creators, coaches, and
-                  consultants build authority, attract qualified leads, and grow
-                  their business through content that works.
+                  That's why we built Content Flow Launch. We help founders,
+                  coaches, consultants, and service businesses build authority
+                  through personal branding and client acquisition systems that
+                  consistently attract qualified leads.
                 </p>
 
                 <p className="mt-4 text-lg leading-relaxed text-white/80">
-                  Every project we take on is treated like our own. We focus on
-                  quality, consistency, and results— because your success
-                  directly reflects ours.
+                  Every brand we work with is treated like our own. We focus on
+                  strategy, execution, and measurable results—because your
+                  growth is our success.
                 </p>
 
                 {/* Signature */}
                 <div className="mt-8">
                   <h4 className="text-xl font-medium">Anmol & Mohit</h4>
 
-                  <p className="text-white/60">
-                    Co-Founders, Content Flow Launch
-                  </p>
+                  <p className="text-white/60">Content Flow Launch</p>
                 </div>
               </div>
             </div>
