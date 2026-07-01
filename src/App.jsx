@@ -119,7 +119,7 @@ const App = () => {
   return (
     <>
       {/* Background */}
-      <div className="fixed inset-0 z-0 overflow-hidden bg-[#040608]">
+      <div className="fixed inset-0 -z-0 overflow-hidden bg-[#040608]">
         {/* Main Gradient */}
         <div
           className="absolute inset-0"
@@ -283,6 +283,7 @@ const App = () => {
               </button>
             </nav>
           </motion.div>
+
           {/* Hero Content */}
           <motion.div
             variants={stagger}
@@ -297,7 +298,7 @@ const App = () => {
                 scale: 1.02,
                 boxShadow: "0_15px_80px_rgba(28,175,170,0.08)",
               }}
-              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
+              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)] z-50"
             >
               <div className="relative flex items-center">
                 <div className="absolute w-2 h-2 rounded-full bg-prime animate-ping"></div>
@@ -311,7 +312,7 @@ const App = () => {
             {/* Heading */}
             <motion.h2
               variants={fadeUp}
-              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
               Organic
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
@@ -455,7 +456,7 @@ const App = () => {
             {/* Badge */}
             <motion.h4
               variants={fadeUp}
-              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
+              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)] z-50"
             >
               <div className="relative flex items-center">
                 <div className="absolute w-2 h-2 rounded-full bg-prime animate-ping"></div>
@@ -468,7 +469,7 @@ const App = () => {
             {/* Heading */}
             <motion.h2
               variants={fadeUp}
-              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
               Process Behind{" "}
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
@@ -479,7 +480,7 @@ const App = () => {
             {/* Subheading */}
             <motion.p
               variants={fadeUp}
-              className="max-w-3xl text-center text-white/75"
+              className="max-w-3xl text-center text-white/75 z-50"
             >
               In this quick video, discover how we help founders, coaches and
               businesses turn content into a scalable client acquisition system.
@@ -561,7 +562,7 @@ const App = () => {
             {/* Badge */}
             <motion.h4
               variants={fadeUp}
-              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
+              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)] z-50"
             >
               <div className="relative flex items-center">
                 <div className="absolute w-2 h-2 rounded-full bg-prime animate-ping"></div>
@@ -574,7 +575,7 @@ const App = () => {
             {/* Heading */}
             <motion.h2
               variants={fadeUp}
-              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
               Content That
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
@@ -585,7 +586,7 @@ const App = () => {
             {/* Sub Heading */}
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-center text-white/80"
+              className="max-w-2xl text-center text-white/80 z-50"
             >
               Each piece of content is crafted with one goal: helping the
               coaches, consultants and brands get more reach, leads, and
@@ -653,7 +654,7 @@ const App = () => {
             {/* Badge */}
             <motion.h4
               variants={fadeUp}
-              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
+              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)] z-50"
             >
               <div className="relative flex items-center">
                 <div className="absolute w-2 h-2 rounded-full bg-prime animate-ping"></div>
@@ -666,7 +667,7 @@ const App = () => {
             {/* Heading */}
             <motion.h2
               variants={fadeUp}
-              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
               Simple Process.
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
@@ -677,7 +678,7 @@ const App = () => {
             {/* Sub Heading */}
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-center text-white/80"
+              className="max-w-2xl text-center text-white/80 z-50"
             >
               From strategy to final delivery, every step is designed to
               maximize content quality and business growth.
@@ -803,7 +804,7 @@ const App = () => {
             {/* Badge */}
             <motion.h4
               variants={fadeUp}
-              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
+              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)] z-50"
             >
               <div className="relative flex items-center">
                 <div className="absolute w-2 h-2 rounded-full bg-prime animate-ping"></div>
@@ -816,7 +817,7 @@ const App = () => {
             {/* Heading */}
             <motion.h2
               variants={fadeUp}
-              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
               The Plans That
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
@@ -827,7 +828,7 @@ const App = () => {
             {/* Sub Heading */}
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-center text-white/80"
+              className="max-w-2xl text-center text-white/80 z-50"
             >
               Whether you're building authority, generating leads, or scaling
               your entire content ecosystem, we have a solution for you.
@@ -885,7 +886,7 @@ const App = () => {
               <motion.div
                 variants={fadeUp}
                 whileHover={{ y: -10 }}
-                className="relative overflow-hidden rounded-xl border border-white/20 bg-white/[0.05] backdrop-blur-xl p-6"
+                className="relative rounded-xl border border-white/20 bg-white/[0.05] backdrop-blur-xl p-6"
               >
                 {/* Popular Badge */}
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-prime p-1.5 px-4 text-sm">
@@ -969,7 +970,7 @@ const App = () => {
                 </div>
 
                 <button
-                  data-cal-link="suraj.1cr/30min"
+                  data-cal-link="anmol-type-business-grmo2i/discover-call"
                   data-cal-config='{"theme":"dark"}'
                   className="mt-8 w-full rounded-lg bg-prime/85 p-4 text-white"
                 >
@@ -992,7 +993,7 @@ const App = () => {
             {/* Badge */}
             <motion.h4
               variants={fadeUp}
-              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
+              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)] z-50"
             >
               <div className="relative flex items-center">
                 <div className="absolute w-2 h-2 rounded-full bg-prime animate-ping"></div>
@@ -1005,7 +1006,7 @@ const App = () => {
             {/* Heading */}
             <motion.h2
               variants={fadeUp}
-              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
               Steal Our
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
@@ -1016,7 +1017,7 @@ const App = () => {
             {/* Sub Heading */}
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-center text-white/80"
+              className="max-w-2xl text-center text-white/80 z-50"
             >
               Get the exact framework we use to help creators, coaches, and
               consultants generate attention, authority, and qualified leads
@@ -1122,7 +1123,7 @@ const App = () => {
             {/* Badge */}
             <motion.h4
               variants={fadeUp}
-              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
+              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)] z-50"
             >
               <div className="relative flex items-center">
                 <div className="absolute w-2 h-2 rounded-full bg-prime animate-ping"></div>
@@ -1137,7 +1138,7 @@ const App = () => {
             {/* Heading */}
             <motion.h2
               variants={fadeUp}
-              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
               Don't Take
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
@@ -1148,7 +1149,7 @@ const App = () => {
             {/* Sub Heading */}
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-center text-white/80"
+              className="max-w-2xl text-center text-white/80 z-50"
             >
               Real results from businesses, coaches, and consultants who trusted
               us to transform their content.
@@ -1170,7 +1171,7 @@ const App = () => {
                   setActiveVideo={setActiveVideo}
                 />
 
-                <div className="mt-4 text-center">
+                <div className="mt-4 text-center z-50">
                   <h4 className="font-medium">Ash Carrim</h4>
 
                   <p className="text-sm text-white/60">Growth Strategist</p>
@@ -1178,7 +1179,7 @@ const App = () => {
               </div>
 
               {/* Brands We've Built */}
-              <motion.div variants={fadeUp} className="mt-6 w-full">
+              <motion.div variants={fadeUp} className="mt-6 w-full z-50">
                 <div className="text-center">
                   <h4 className="text-2xl font-medium">
                     Brands We've Helped
@@ -1305,7 +1306,7 @@ const App = () => {
                 </p>
 
                 <div className="mt-6 flex items-center gap-4">
-                  <div className="p-1.5 px-3.5 rounded-full border border-prime/40 bg-prime/15 text-lg font-medium text-prime">
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full border border-prime/40 bg-prime/15 text-lg font-medium text-prime">
                     C
                   </div>
 
@@ -1341,7 +1342,7 @@ const App = () => {
                 </p>
 
                 <div className="mt-6 flex items-center gap-4">
-                  <div className="p-1.5 px-3.5 rounded-full border border-prime/40 bg-prime/15 text-lg font-medium text-prime">
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full border border-prime/40 bg-prime/15 text-lg font-medium text-prime">
                     J
                   </div>
 
@@ -1371,7 +1372,7 @@ const App = () => {
                 </p>
 
                 <div className="mt-6 flex items-center gap-4">
-                  <div className="p-1.5 px-3.5 rounded-full border border-prime/40 bg-prime/15 text-lg font-medium text-prime">
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full border border-prime/40 bg-prime/15 text-lg font-medium text-prime">
                     I
                   </div>
 
@@ -1417,7 +1418,7 @@ const App = () => {
             {/* Badge */}
             <motion.h4
               variants={fadeUp}
-              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
+              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)] z-50"
             >
               <div className="relative flex items-center">
                 <div className="absolute w-2 h-2 rounded-full bg-prime animate-ping"></div>
@@ -1430,7 +1431,7 @@ const App = () => {
             {/* Heading */}
             <motion.h2
               variants={fadeUp}
-              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
               A Personal Message
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
@@ -1454,12 +1455,12 @@ const App = () => {
                     <div className="grid grid-cols-2 gap-6">
                       {[
                         {
-                          image: "/brands/anmol.jpg",
+                          image: "/brands/anmol.webp",
                           name: "Anmol Anuragi",
                           role: "Founder",
                         },
                         {
-                          image: "/brands/creative-dood.jpg",
+                          image: "/brands/mohit.webp",
                           name: "Mohit Kumar",
                           role: "Co-Founder",
                         },
@@ -1548,7 +1549,7 @@ const App = () => {
             {/* Badge */}
             <motion.h4
               variants={fadeUp}
-              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
+              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)] z-50"
             >
               <div className="relative flex items-center">
                 <div className="absolute w-2 h-2 rounded-full bg-prime animate-ping"></div>
@@ -1568,7 +1569,7 @@ const App = () => {
             {/* Heading */}
             <motion.h2
               variants={fadeUp}
-              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
               Let's Discuss
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
@@ -1579,7 +1580,7 @@ const App = () => {
             {/* Subheading */}
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-center text-white/80"
+              className="max-w-2xl text-center text-white/80 z-50"
             >
               Get a personalized content growth strategy, actionable
               recommendations, and a clear roadmap tailored to your business.
@@ -1670,7 +1671,7 @@ const App = () => {
                   <div className="relative">
                     <div className="flex items-center gap-4">
                       <img
-                        src="/brands/anmol.jpg"
+                        src="/brands/anmol.webp"
                         alt=""
                         className="h-16 w-16 rounded-xl object-cover border border-white/20"
                       />
@@ -1705,7 +1706,7 @@ const App = () => {
                     </div>
 
                     <button
-                      data-cal-link="suraj.1cr/30min"
+                      data-cal-link="anmol-type-business-grmo2i/discover-call"
                       data-cal-config='{"theme":"dark"}'
                       className="group mt-8 w-full rounded-xl p-4 text-lg font-medium text-white bg-prime"
                     >
@@ -1740,7 +1741,7 @@ const App = () => {
             {/* Badge */}
             <motion.h4
               variants={fadeUp}
-              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
+              className="p-2 px-4 rounded-full border-2 border-prime flex items-center gap-2 bg-dark/50 backdrop-blur-sm shadow-[0_15px_80px_rgba(28,179,170,0.08)] z-50"
             >
               <div className="relative flex items-center">
                 <div className="absolute w-2 h-2 rounded-full bg-prime animate-ping"></div>
@@ -1753,7 +1754,7 @@ const App = () => {
             {/* Heading */}
             <motion.h2
               variants={fadeUp}
-              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
+              className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
               Let's Build Something
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
@@ -1764,7 +1765,7 @@ const App = () => {
             {/* Subheading */}
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-center text-white/80"
+              className="max-w-2xl text-center text-white/80 z-50"
             >
               Have a question, project idea, or just want to explore how we can
               help? We'd love to hear from you.
@@ -1815,7 +1816,7 @@ const App = () => {
 
                 {/* Instagram */}
                 <a
-                  href="#"
+                  href="https://instagram.com/contentflowlaunch"
                   className="rounded-xl border border-white/20 bg-white/[0.05] p-6 transition-all duration-200 hover:border-prime/40"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-prime">
@@ -1832,9 +1833,9 @@ const App = () => {
         </section>
 
         {/* Footer */}
-        <footer className="w-full mt-6 px-4 lg:px-24 xl:px-36 pb-8">
+        <footer className="w-full mt-6 px-4 lg:px-24 xl:px-36 pb-8 relative z-50">
           <div className="border-t border-white/20 pt-8">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between z-50">
               {/* Logo */}
               <div>
                 <div className="flex items-center gap-3">
@@ -1895,11 +1896,11 @@ const App = () => {
                   },
                   {
                     icon: "ri-linkedin-line",
-                    link: "#",
+                    link: "https://www.linkedin.com/in/anmol-anuragi-074821368/",
                   },
                   {
                     icon: "ri-youtube-line",
-                    link: "#",
+                    link: "https://www.youtube.com/channel/UCIW7gdmrMpP3VOCXwuZFbng",
                   },
                 ].map((item) => (
                   <a
