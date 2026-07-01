@@ -44,6 +44,43 @@ const App = () => {
     });
   };
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+    const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+
+    const message = `
+🆕 New Freebie Download
+
+👤 Name: ${name}
+📧 Email: ${email}
+`;
+
+    await fetch(
+      `https://api.telegram.org/bot${import.meta.env.VITE_TELEGRAM_BOT_TOKEN}/sendMessage`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: import.meta.env.VITE_TELEGRAM_CHAT_ID,
+          text: message,
+        }),
+      },
+    );
+
+    window.open(
+      "https://app.notion.com/p/FREE-BIE-38f0621d100e800b91cac6c89707c555",
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
+
   const [activeVideo, setActiveVideo] = useState(null);
 
   const fadeUp = {
@@ -177,11 +214,11 @@ const App = () => {
             variants={fadeUp}
             className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl"
           >
-            Turn Attention{" "}
+            Organic{" "}
             <span className="block bg-gradient-to-r from-orange to-lightOrange bg-clip-text text-transparent">
-              Into High-Ticket
+              Leads Acquisition
             </span>{" "}
-            Qualified Leads
+            Made Simple
           </motion.h2>
 
           {/* Sub Heading */}
@@ -359,18 +396,13 @@ const App = () => {
 
             {/* Video Thumbnail */}
             <VideoCard
-              thumbnail="/vsl-thumbnail.webp"
-              youtubeId="YOUR_VSL_VIDEO_ID"
+              thumbnail="/thumbnails/vsl.webp"
+              youtubeId="9hpFGAexXJ4"
               videoType="horizontal"
               title="How It Works"
               className="aspect-video"
               setActiveVideo={setActiveVideo}
             />
-
-            {/* Duration */}
-            <div className="absolute bottom-6 right-4 rounded-full border border-white/20 bg-black/50 backdrop-blur-md p-2 px-4">
-              <span className="text-sm text-white">5 Min Watch</span>
-            </div>
           </motion.div>
 
           {/* Benefits */}
@@ -469,7 +501,7 @@ const App = () => {
               <VideoCard
                 title="Portfolio Showcase"
                 thumbnail="/thumbnails/short1.webp"
-                youtubeId="YzyCJB3riFk"
+                youtubeId="oRpC83TP5Sw"
                 videoType="vertical"
                 className="aspect-[9/16]"
                 setActiveVideo={setActiveVideo}
@@ -478,7 +510,7 @@ const App = () => {
               <VideoCard
                 title="Portfolio Showcase"
                 thumbnail="/thumbnails/short2.webp"
-                youtubeId="YzyCJB3riFk"
+                youtubeId="Lzo4CtLHM2k"
                 videoType="vertical"
                 className="aspect-[9/16]"
                 setActiveVideo={setActiveVideo}
@@ -487,7 +519,7 @@ const App = () => {
               <VideoCard
                 title="Portfolio Showcase"
                 thumbnail="/thumbnails/short3.webp"
-                youtubeId="YzyCJB3riFk"
+                youtubeId="rPzI6U87zbs"
                 videoType="vertical"
                 className="aspect-[9/16]"
                 setActiveVideo={setActiveVideo}
@@ -496,7 +528,7 @@ const App = () => {
               <VideoCard
                 title="Portfolio Showcase"
                 thumbnail="/thumbnails/short4.webp"
-                youtubeId="YzyCJB3riFk"
+                youtubeId="ItjMSyJrqmo"
                 videoType="vertical"
                 className="aspect-[9/16]"
                 setActiveVideo={setActiveVideo}
@@ -560,28 +592,46 @@ const App = () => {
                   title: "Onboarding Call",
                   description:
                     "We identify your offer, audience, and market positioning to create a content strategy that attracts the right people.",
-                  process: "Simple > Process",
+                  process: ["ICP clarity", "Offers", "Value ladder"],
                 },
                 {
                   number: "02",
                   title: "Content Production",
                   description:
                     "Our team transforms your ideas into high-converting content designed to build authority and capture attention.",
-                  process: "Simple > Process",
+                  process: [
+                    "Optimization",
+                    "Strategic Formatting",
+                    "Branding",
+                    "Scripting",
+                    "Editing",
+                    "Posting",
+                  ],
                 },
                 {
                   number: "03",
                   title: "Client Acquisition",
                   description:
                     "We build the systems, funnels, and lead capture mechanisms that turn viewers into qualified prospects.",
-                  process: "Simple > Process",
+                  process: [
+                    "Landing Page",
+                    "Lead Magnet",
+                    "CRM",
+                    "DM Automation",
+                    "Call Booking",
+                  ],
                 },
                 {
                   number: "04",
                   title: "Optimize & Scale",
                   description:
                     "Using performance data, we refine your content and pipeline to generate more leads, meetings, and revenue consistently.",
-                  process: "Simple > Process",
+                  process: [
+                    "Analytics",
+                    "Optimization",
+                    "Growth Report",
+                    "Scaling",
+                  ],
                 },
               ].map((step, index) => (
                 <motion.div
@@ -616,11 +666,15 @@ const App = () => {
                         {step.description}
                       </p>
 
-                      {/* Bottom */}
-                      <div className="mt-4 flex items-center justify-between">
-                        <div className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/[0.05] px-4 p-2 text-sm text-white/60">
-                          {step.process}
-                        </div>
+                      {/* Process Flow */}
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {step.process.map((item, i) => (
+                          <React.Fragment key={item}>
+                            <div className="flex items-center gap-2 rounded-lg border border-white/20 bg-white/[0.05] px-4 p-2 text-sm text-white/60">
+                              {item}
+                            </div>
+                          </React.Fragment>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -679,7 +733,7 @@ const App = () => {
             <motion.div
               variants={fadeUp}
               whileHover={{ y: -10 }}
-              className="rounded-xl border border-white/20 bg-white/[0.05] backdrop-blur-xl p-8"
+              className="rounded-xl border border-white/20 bg-white/[0.05] p-8"
             >
               <h4 className="text-2xl font-medium">Basic</h4>
 
@@ -714,7 +768,7 @@ const App = () => {
               </p>
 
               <button
-                onClick={() => scrollToSection("book-call")}
+                onClick={() => scrollToSection("book-a-call")}
                 className="mt-8 w-full rounded-xl border border-white/20 bg-white/5 p-4"
               >
                 Get Started
@@ -725,7 +779,7 @@ const App = () => {
             <motion.div
               variants={fadeUp}
               whileHover={{ y: -10 }}
-              className="relative rounded-xl border border-orange/40 bg-white/[0.05] backdrop-blur-xl p-8 shadow-[0_0_45px_rgba(234,109,53,0.15)]"
+              className="relative rounded-xl border border-orange/40 bg-white/[0.05] p-8 shadow-[0_0_45px_rgba(235,110,55,0.15)]"
             >
               {/* Popular Badge */}
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-orange p-1.5 px-4 text-sm">
@@ -745,10 +799,10 @@ const App = () => {
                   "Everything in Basic",
                   "Organic & Inorganic Lead Generation",
                   "Advance Funnel Setup",
-                  "Call Booking Assistant",
+                  "AI Call Booking Assistant",
                   "Personalized Growth Strategy",
                   "Personal Branding",
-                  "Client Acquisition System",
+                  "DM Conversion Engine",
                   "Weekly Strategy Calls",
                 ].map((feature) => (
                   <div key={feature} className="flex items-start gap-3">
@@ -765,7 +819,7 @@ const App = () => {
               </p>
 
               <button
-                onClick={() => scrollToSection("book-call")}
+                onClick={() => scrollToSection("book-a-call")}
                 className="mt-8 w-full rounded-xl bg-orange p-4 text-white"
               >
                 Get Started
@@ -776,7 +830,7 @@ const App = () => {
             <motion.div
               variants={fadeUp}
               whileHover={{ y: -10 }}
-              className="rounded-xl border border-white/20 bg-white/[0.05] backdrop-blur-xl p-8"
+              className="rounded-xl border border-white/20 bg-white/[0.05] p-8"
             >
               <h4 className="text-2xl font-medium">Custom</h4>
 
@@ -809,7 +863,8 @@ const App = () => {
               </div>
 
               <button
-                onClick={() => scrollToSection("book-call")}
+                data-cal-link="suraj.1cr/30min"
+                data-cal-config='{"theme":"dark"}'
                 className="mt-8 w-full rounded-xl bg-orange p-4 text-white"
               >
                 Book a Call
@@ -865,9 +920,6 @@ const App = () => {
           {/* Main Card */}
           <motion.div
             variants={fadeUp}
-            whileHover={{
-              y: -5,
-            }}
             className="relative mt-6 w-full max-w-6xl overflow-hidden rounded-xl border border-white/20 bg-white/[0.05] backdrop-blur-xl"
           >
             {/* Glow */}
@@ -878,23 +930,22 @@ const App = () => {
               <div className="flex flex-col justify-center">
                 <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-orange/20 bg-orange/10 p-2 px-4 text-sm text-orange">
                   <i className="ri-download-cloud-line"></i>
-                  Free PDF Guide
+                  Free Notion Template
                 </div>
 
-                <h4 className="text-3xl font-medium">7-Step Content System</h4>
+                <h4 className="text-3xl font-medium">What's Inside?</h4>
 
                 <p className="mt-4 text-white/80">
-                  Learn how to consistently create content that builds
-                  authority, attracts qualified leads, and converts viewers into
-                  paying clients.
+                  Access the exact resources our team uses to build premium
+                  personal brands and create content that attracts qualified
+                  clients.
                 </p>
 
                 <div className="mt-8 space-y-4">
                   {[
-                    "Content positioning framework",
-                    "High-converting content formats",
-                    "Lead generation strategies",
-                    "Content workflow templates",
+                    "3 Scripting Formats & Templates",
+                    "Creative Direction Deck",
+                    "Build Your Unique Content Style",
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-3">
                       <i className="ri-check-line text-orange text-xl"></i>
@@ -914,26 +965,38 @@ const App = () => {
                     Enter your email and get instant access.
                   </p>
 
-                  <div className="mt-6 flex flex-col gap-4">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="mt-8 flex flex-col gap-4"
+                  >
                     <input
                       type="text"
                       placeholder="Your Name"
-                      className="rounded-xl border border-white/20 bg-white/[0.05] p-4 outline-none focus:border-orange"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      className="rounded-xl border border-white/15 bg-white/[0.04] p-4 outline-none"
                     />
 
                     <input
                       type="email"
-                      placeholder="Your Email"
-                      className="rounded-xl border border-white/20 bg-white/[0.05] p-4 outline-none focus:border-orange"
+                      placeholder="Your Email Address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="rounded-xl border border-white/15 bg-white/[0.04] p-4 outline-none"
                     />
 
-                    <button className="rounded-xl bg-orange p-4 font-medium text-white transition-all duration-300 hover:shadow-[0_0_15px_rgba(234,109,53,0.35)]">
+                    <button
+                      type="submit"
+                      className="rounded-xl p-4 font-medium text-white bg-orange"
+                    >
                       Get Instant Access
                     </button>
-                  </div>
+                  </form>
 
                   <p className="mt-4 text-center text-xs text-white/40">
-                    No spam. Unsubscribe anytime.
+                    Secure. No Spam. Instant Access.
                   </p>
                 </div>
               </div>
@@ -992,8 +1055,8 @@ const App = () => {
             <div className="grid">
               <VideoCard
                 title="Client Testimonial"
-                thumbnail="/testimonials/featured.webp"
-                youtubeId="VIDEO_ID"
+                thumbnail="/thumbnails/testimonial.webp"
+                youtubeId="voxCsKAK2Eo"
                 videoType="horizontal"
                 className="aspect-video"
                 setActiveVideo={setActiveVideo}
@@ -1125,22 +1188,21 @@ const App = () => {
               </div>
 
               <p className="mt-4 text-white/80 leading-relaxed">
-                "The quality of content completely changed the way people
-                perceive my brand. Engagement increased and I started getting
-                qualified inquiries every week."
+                "Working with Anmol has been an excellent experience.
+                Communication was smooth, the process was professional, and I'm
+                excited to continue working together. Looking forward to
+                creating great content together!"
               </p>
 
               <div className="mt-6 flex items-center gap-4">
-                <img
-                  src="/testimonials/client1.jpg"
-                  alt=""
-                  className="h-12 w-12 rounded-full object-cover"
-                />
+                <div className="p-1.5 px-3.5 rounded-full border border-orange/40 bg-orange/15 text-lg font-medium text-orange">
+                  C
+                </div>
 
                 <div>
-                  <h4 className="font-medium">Rahul Sharma</h4>
+                  <h4 className="font-medium">Chinmay</h4>
 
-                  <p className="text-sm text-white/60">Business Coach</p>
+                  <p className="text-sm text-white/60">Verified Client</p>
                 </div>
               </div>
             </motion.div>
@@ -1162,23 +1224,21 @@ const App = () => {
               </div>
 
               <p className="mt-4 text-white/80 leading-relaxed">
-                "Within 90 days, our content started generating consistent
-                leads. The editing, strategy, and content positioning were on a
-                completely different level compared to anything we tried
-                before."
+                "Working with Anmol was a great experience. The final edit
+                exceeded my expectations and the quality was outstanding. He
+                understood exactly what I wanted, delivered on time, and the
+                result was excellent. Highly recommended!"
               </p>
 
               <div className="mt-6 flex items-center gap-4">
-                <img
-                  src="/testimonials/client2.jpg"
-                  alt=""
-                  className="h-12 w-12 rounded-full object-cover"
-                />
+                <div className="p-1.5 px-3.5 rounded-full border border-orange/40 bg-orange/15 text-lg font-medium text-orange">
+                  J
+                </div>
 
                 <div>
-                  <h4 className="font-medium">Aman Verma</h4>
+                  <h4 className="font-medium">Joey Colangelo</h4>
 
-                  <p className="text-sm text-white/60">Marketing Consultant</p>
+                  <p className="text-sm text-white/60">Trusted Client</p>
                 </div>
               </div>
             </motion.div>
@@ -1196,21 +1256,19 @@ const App = () => {
               </div>
 
               <p className="mt-4 text-white/80 leading-relaxed">
-                "What impressed me most was the consistency. Every video looked
-                premium and aligned perfectly with my personal brand."
+                "Really happy with how the video turned out. Thanks bro,
+                appreciate it!"
               </p>
 
               <div className="mt-6 flex items-center gap-4">
-                <img
-                  src="/testimonials/client3.jpg"
-                  alt=""
-                  className="h-12 w-12 rounded-full object-cover"
-                />
+                <div className="p-1.5 px-3.5 rounded-full border border-orange/40 bg-orange/15 text-lg font-medium text-orange">
+                  I
+                </div>
 
                 <div>
-                  <h4 className="font-medium">Priya Kapoor</h4>
+                  <h4 className="font-medium">Ishaan</h4>
 
-                  <p className="text-sm text-white/60">Leadership Coach</p>
+                  <p className="text-sm text-white/60">Verified Client</p>
                 </div>
               </div>
             </motion.div>
@@ -1749,7 +1807,7 @@ const App = () => {
         </div>
       </footer>
 
-      {/* Portfolio Showcase */}
+      {/* Video Showcase */}
       <AnimatePresence>
         {activeVideo && (
           <motion.div

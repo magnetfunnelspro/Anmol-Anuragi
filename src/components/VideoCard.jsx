@@ -33,13 +33,13 @@ const VideoCard = ({
         className="w-full h-full object-cover transition duration-500"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
 
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center justify-center w-20 h-20 rounded-full border border-white/20 bg-black/40 backdrop-blur-xl shadow-[0_0_30px_rgba(234,109,53,0.35)]"
+          className="opacity-85 flex items-center justify-center w-20 h-20 rounded-full border border-white/20 bg-black/40 backdrop-blur-xl shadow-[0_0_30px_rgba(235,110,55,0.35)]"
         >
           <div className="flex items-center justify-center w-14 h-14 rounded-full bg-orange">
             <i className="ri-play-fill text-2xl text-white" />
