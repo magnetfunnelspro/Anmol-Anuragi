@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         dark: "#050505",
-        orange: "#EA6D35",
-        lightOrange: "#EAA179",
+        prime: "#1CB3AA",
+        accent: "#68D7D2",
       },
     },
   },

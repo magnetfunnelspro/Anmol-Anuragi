@@ -19,3 +19,17 @@
   font-style: normal;
   font-display: swap;
 }
+
+@keyframes gridMove {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(80px);
+  }
+}
+
+.animate-grid {
+  animation: gridMove 12s linear infinite;
+}
