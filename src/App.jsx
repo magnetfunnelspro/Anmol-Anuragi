@@ -116,6 +116,37 @@ const App = () => {
     })();
   }, []);
 
+  const caseStudies = [
+    {
+      metric: "200K+",
+      label: "Views Generated",
+      title: "Personal Brand Growth",
+      description:
+        "Sagar from Unseen Creates wanted to grow his personal brand and consistently reach more people. We built a strategic content system that helped one of his videos cross 200K+ views within 14 months while creating steady audience growth.",
+      client: "Unseen Creates",
+      logo: "/brands/unseen-create.jpeg",
+    },
+    {
+      metric: "50+",
+      label: "Qualified Leads",
+      title: "Client Acquisition System",
+      description:
+        "Mohit Kumar needed a predictable way to attract high-quality clients. We built a complete personal branding and content system that consistently generates qualified leads, helping him acquire 50+ potential clients.",
+      client: "Mohit Kumar",
+      logo: "/brands/mohit.webp",
+      featured: true,
+    },
+    {
+      metric: "Long-Term",
+      label: "Brand Authority",
+      title: "Content Engine",
+      description:
+        "Ash Carrim wanted a long-term content strategy instead of random viral posts. We crafted a repeatable content style aligned with his personality, helping him build authority, attract qualified leads, and create a sustainable content system.",
+      client: "Ash Carrim",
+      logo: "/brands/ash.jpg",
+    },
+  ];
+
   return (
     <>
       {/* Background */}
@@ -246,15 +277,15 @@ const App = () => {
               <div className="absolute left-1/2 -translate-x-1/2 hidden xl:flex items-center gap-8">
                 {[
                   {
-                    label: "Portfolio",
+                    label: "Work",
                     id: "portfolio",
                   },
                   {
-                    label: "Process",
+                    label: "System",
                     id: "process",
                   },
                   {
-                    label: "Pricing",
+                    label: "Deliverables",
                     id: "pricing",
                   },
                   {
@@ -336,7 +367,7 @@ const App = () => {
                 onClick={() => scrollToSection("portfolio")}
                 className="p-4 px-6 rounded-lg text-white bg-prime/85"
               >
-                View Portfolio
+                Our Work
               </button>
 
               <button
@@ -811,7 +842,7 @@ const App = () => {
                 <div className="w-2 h-2 rounded-full bg-prime"></div>
               </div>
 
-              <span className="text-prime font-medium">Pricing & Plans</span>
+              <span className="text-prime font-medium">Our Deliverables</span>
             </motion.h4>
 
             {/* Heading */}
@@ -819,9 +850,9 @@ const App = () => {
               variants={fadeUp}
               className="text-[42px] md:text-5xl font-medium text-center leading-[1.05] max-w-5xl z-50"
             >
-              The Plans That
+              Choose The Right
               <span className="block bg-gradient-to-r from-prime to-accent bg-clip-text text-transparent">
-                Speed Up Growth
+                Engagement Model
               </span>
             </motion.h2>
 
@@ -830,8 +861,8 @@ const App = () => {
               variants={fadeUp}
               className="max-w-2xl text-center text-white/80 z-50"
             >
-              Whether you're building authority, generating leads, or scaling
-              your entire content ecosystem, we have a solution for you.
+              Every business is different. We tailor our approach based on your
+              current stage, growth goals, and the level of support you need.
             </motion.p>
 
             {/* Pricing Cards */}
@@ -845,9 +876,9 @@ const App = () => {
                 <h4 className="text-2xl font-medium">Basic</h4>
 
                 <div className="mt-4">
-                  <span className="text-5xl font-medium">$1499</span>
-
-                  <span className="text-white/60">/month</span>
+                  <span className="text-3xl font-medium">
+                    Build Your Brand Foundation
+                  </span>
                 </div>
 
                 <div className="mt-8 space-y-4">
@@ -878,7 +909,7 @@ const App = () => {
                   onClick={() => scrollToSection("book-a-call")}
                   className="mt-8 w-full rounded-lg border border-white/20 bg-white/5 p-4"
                 >
-                  Get Started
+                  Book a Call
                 </button>
               </motion.div>
 
@@ -896,9 +927,9 @@ const App = () => {
                 <h4 className="text-2xl font-medium">Growth</h4>
 
                 <div className="mt-4">
-                  <span className="text-5xl font-medium text-prime">$2999</span>
-
-                  <span className="text-white/60">/month</span>
+                  <span className="text-3xl font-medium text-prime">
+                    Complete Client Acquisition
+                  </span>
                 </div>
 
                 <div className="mt-8 space-y-4">
@@ -929,7 +960,7 @@ const App = () => {
                   onClick={() => scrollToSection("book-a-call")}
                   className="mt-8 w-full rounded-lg bg-prime/85 p-4 text-white"
                 >
-                  Get Started
+                  Book a Call
                 </button>
               </motion.div>
 
@@ -970,8 +1001,7 @@ const App = () => {
                 </div>
 
                 <button
-                  data-cal-link="anmol-type-business-grmo2i/discover-call"
-                  data-cal-config='{"theme":"dark"}'
+                  onClick={() => scrollToSection("book-a-call")}
                   className="mt-8 w-full rounded-lg bg-prime/85 p-4 text-white"
                 >
                   Book a Call
@@ -1155,7 +1185,7 @@ const App = () => {
               us to transform their content.
             </motion.p>
 
-            {/* Video Testimonials */}
+            {/* Testimonials */}
             <motion.div
               variants={fadeUp}
               className="mt-8 w-full flex flex-col gap-6"
@@ -1284,7 +1314,7 @@ const App = () => {
               </motion.div>
             </motion.div>
 
-            {/* Testimonials */}
+            {/* Text Testimonials */}
             <div className="mt-8 grid w-full gap-6 lg:grid-cols-3">
               {/* Card 1 */}
               <motion.div
@@ -1385,10 +1415,46 @@ const App = () => {
               </motion.div>
             </div>
 
+            {/* Case Studies */}
+            <div className="grid gap-6 lg:grid-cols-3 mt-8">
+              {caseStudies.map((study) => (
+                <motion.div
+                  key={study.title}
+                  className={`group relative overflow-hidden rounded-2xl border p-6 backdrop-blur-xl transition-all ${
+                    study.featured
+                      ? "border-prime/40 bg-white/[0.06]"
+                      : "border-white/15 bg-white/[0.04]"
+                  }`}
+                >
+                  {/* Metric */}
+                  <div className="inline-flex rounded-full border border-prime/30 bg-prime/10 px-4 p-2 text-xs uppercase tracking-[0.2em] text-prime">
+                    {study.metric} {study.label}
+                  </div>
+
+                  <p className="mt-6 text-lg leading-relaxed text-white/75">
+                    {study.description}
+                  </p>
+
+                  <div className="mt-10 flex items-center gap-4">
+                    <img
+                      src={study.logo}
+                      className="h-10 w-10 rounded-full object-cover border border-white/10"
+                    />
+
+                    <div>
+                      <h4 className="font-medium">{study.client}</h4>
+
+                      <p className="text-sm text-white/50">{study.title}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
             {/* Social Proof Stats */}
             <div className="mt-10 grid w-full gap-6 md:grid-cols-3">
               {[
-                ["$50K+", "Revenue Generated"],
+                ["50+", "High-Ticket Conversion"],
                 ["300M+", "Views Generated"],
                 ["98%", "Client Retention"],
               ].map(([value, label]) => (
@@ -1859,19 +1925,19 @@ const App = () => {
                   onClick={() => scrollToSection("portfolio")}
                   className="cursor-pointer"
                 >
-                  Portfolio
+                  Work
                 </a>
                 <a
                   onClick={() => scrollToSection("process")}
                   className="cursor-pointer"
                 >
-                  Process
+                  System
                 </a>
                 <a
                   onClick={() => scrollToSection("pricing")}
                   className="cursor-pointer"
                 >
-                  Pricing
+                  Deliverables
                 </a>
                 <a
                   onClick={() => scrollToSection("testimonials")}
