@@ -44,6 +44,48 @@ const App = () => {
     });
   };
 
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  const [cursorVariant, setCursorVariant] = useState("default");
+
+  useEffect(() => {
+    const moveCursor = (e) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", moveCursor);
+
+    return () => {
+      window.removeEventListener("mousemove", moveCursor);
+    };
+  }, []);
+
+  const variants = {
+    default: {
+      x: mousePosition.x - 12,
+      y: mousePosition.y - 12,
+      width: 32,
+      height: 32,
+      opacity: 1,
+      borderWidth: "1.5px",
+    },
+
+    hover: {
+      x: mousePosition.x - 30,
+      y: mousePosition.y - 30,
+      width: 64,
+      height: 64,
+      opacity: 1,
+      borderWidth: "2px",
+    },
+  };
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
@@ -235,6 +277,28 @@ const App = () => {
         />
       </div>
 
+      <motion.div
+        variants={variants}
+        animate={cursorVariant}
+        transition={{
+          type: "spring",
+          stiffness: 500,
+          damping: 32,
+          mass: 0.35,
+        }}
+        className="
+    pointer-events-none
+    fixed
+    left-0
+    top-0
+    z-[9999]
+    rounded-full
+    border
+    border-prime/80
+    bg-transparent
+  "
+      />
+
       <div className="w-full h-full text-white bg-dark tracking-wide font-[Delight]">
         {/* Grid */}
         <div className="fixed inset-0 z-0 overflow-hidden">
@@ -290,11 +354,15 @@ const App = () => {
                     label: "Testimonials",
                     id: "testimonials",
                   },
+                  {
+                    label: "Case Studies",
+                    id: "case-studies",
+                  },
                 ].map((item) => (
                   <button
                     key={item.label}
                     onClick={() => scrollToSection(item.id)}
-                    className="group relative text-white/80 hover:text-white transition-all duration-300"
+                    className="group relative text-white/80 hover:text-white transition-all duration-200"
                   >
                     {item.label}
 
@@ -306,6 +374,8 @@ const App = () => {
               {/* CTA */}
               <button
                 onClick={() => scrollToSection("book-a-call")}
+                onMouseEnter={() => setCursorVariant("hover")}
+                onMouseLeave={() => setCursorVariant("default")}
                 className="p-2 px-3.5 rounded-lg text-white bg-prime/85"
               >
                 Book a Call
@@ -363,6 +433,8 @@ const App = () => {
             <motion.div variants={fadeUp} className="flex gap-6">
               <button
                 onClick={() => scrollToSection("portfolio")}
+                onMouseEnter={() => setCursorVariant("hover")}
+                onMouseLeave={() => setCursorVariant("default")}
                 className="p-4 px-6 rounded-lg text-white bg-prime/85"
               >
                 Our Work
@@ -370,6 +442,8 @@ const App = () => {
 
               <button
                 onClick={() => scrollToSection("book-a-call")}
+                onMouseEnter={() => setCursorVariant("hover")}
+                onMouseLeave={() => setCursorVariant("default")}
                 className="p-4 px-6 rounded-lg border border-white/15 bg-white/5 backdrop-blur-md"
               >
                 Book a Call
@@ -868,7 +942,6 @@ const App = () => {
               {/* Basic */}
               <motion.div
                 variants={fadeUp}
-                whileHover={{ y: -10 }}
                 className="relative overflow-hidden rounded-xl border border-white/20 bg-white/[0.05] backdrop-blur-xl p-6"
               >
                 <h4 className="text-2xl font-medium">Basic</h4>
@@ -905,6 +978,8 @@ const App = () => {
 
                 <button
                   onClick={() => scrollToSection("book-a-call")}
+                  onMouseEnter={() => setCursorVariant("hover")}
+                  onMouseLeave={() => setCursorVariant("default")}
                   className="mt-8 w-full rounded-lg border border-white/20 bg-white/5 p-4"
                 >
                   Book a Call
@@ -914,7 +989,6 @@ const App = () => {
               {/* Growth */}
               <motion.div
                 variants={fadeUp}
-                whileHover={{ y: -10 }}
                 className="relative rounded-xl border border-white/20 bg-white/[0.05] backdrop-blur-xl p-6"
               >
                 {/* Popular Badge */}
@@ -956,6 +1030,8 @@ const App = () => {
 
                 <button
                   onClick={() => scrollToSection("book-a-call")}
+                  onMouseEnter={() => setCursorVariant("hover")}
+                  onMouseLeave={() => setCursorVariant("default")}
                   className="mt-8 w-full rounded-lg bg-prime/85 p-4 text-white"
                 >
                   Book a Call
@@ -965,7 +1041,6 @@ const App = () => {
               {/* Custom */}
               <motion.div
                 variants={fadeUp}
-                whileHover={{ y: -10 }}
                 className="relative overflow-hidden rounded-xl border border-white/20 bg-white/[0.05] backdrop-blur-xl p-6"
               >
                 <h4 className="text-2xl font-medium">Custom</h4>
@@ -1000,6 +1075,8 @@ const App = () => {
 
                 <button
                   onClick={() => scrollToSection("book-a-call")}
+                  onMouseEnter={() => setCursorVariant("hover")}
+                  onMouseLeave={() => setCursorVariant("default")}
                   className="mt-8 w-full rounded-lg bg-prime/85 p-4 text-white"
                 >
                   Book a Call
@@ -1121,6 +1198,8 @@ const App = () => {
 
                       <button
                         type="submit"
+                        onMouseEnter={() => setCursorVariant("hover")}
+                        onMouseLeave={() => setCursorVariant("default")}
                         className="rounded-xl p-4 font-medium text-white bg-prime/85"
                       >
                         Get Instant Access
@@ -1285,6 +1364,8 @@ const App = () => {
                           </div>
 
                           <a
+                            onMouseEnter={() => setCursorVariant("hover")}
+                            onMouseLeave={() => setCursorVariant("default")}
                             href={`https://www.instagram.com/${brand.username}/`}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -1414,7 +1495,7 @@ const App = () => {
             </div>
 
             {/* Case Studies */}
-            <div className="grid gap-6 lg:grid-cols-3 mt-8">
+            <div id="case-studies" className="grid gap-6 lg:grid-cols-3 pt-8">
               {caseStudies.map((study) => (
                 <motion.div
                   key={study.title}
@@ -1521,7 +1602,7 @@ const App = () => {
                         {
                           image: "/brands/anmol.webp",
                           name: "Anmol Anuragi",
-                          role: "Founder",
+                          role: "Co-Founder",
                         },
                         {
                           image: "/brands/mohit.webp",
@@ -1656,6 +1737,7 @@ const App = () => {
               className="relative mt-6 w-full overflow-hidden rounded-xl border border-white/20 bg-white/[0.05] backdrop-blur-xl shadow-[0_15px_80px_rgba(28,179,170,0.08)]"
             >
               <div className="relative grid gap-10 p-6 lg:grid-cols-[400px_1fr] lg:p-10">
+                {/* Left Side */}
                 <div className="flex flex-col justify-center">
                   <div className="w-fit p-2 px-4 rounded-full border border-prime/40 bg-prime/15 text-prime text-sm">
                     Free Consultation
@@ -1772,7 +1854,9 @@ const App = () => {
                     <button
                       data-cal-link="anmol-type-business-grmo2i/discover-call"
                       data-cal-config='{"theme":"dark"}'
-                      className="group mt-8 w-full rounded-xl p-4 text-lg font-medium text-white bg-prime"
+                      onMouseEnter={() => setCursorVariant("hover")}
+                      onMouseLeave={() => setCursorVariant("default")}
+                      className="group mt-8 w-full rounded-xl p-4 text-lg font-medium text-white bg-prime/80"
                     >
                       <span className="flex items-center justify-center gap-2">
                         Schedule a Free Call
@@ -1846,7 +1930,11 @@ const App = () => {
               <div className="relative grid gap-6 p-6 md:grid-cols-3 lg:p-8">
                 {/* Email */}
                 <a
+                  onMouseEnter={() => setCursorVariant("hover")}
+                  onMouseLeave={() => setCursorVariant("default")}
                   href="mailto:anmoltypebusiness@gmail.com"
+                  target="_blank"
+                  rel="noreferrer"
                   className="rounded-xl border border-white/20 bg-white/[0.05] p-6 transition-all duration-200 hover:border-prime/40"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-prime">
@@ -1862,6 +1950,8 @@ const App = () => {
 
                 {/* Linkedin */}
                 <a
+                  onMouseEnter={() => setCursorVariant("hover")}
+                  onMouseLeave={() => setCursorVariant("default")}
                   href="https://www.linkedin.com/in/anmol-anuragi-074821368/"
                   target="_blank"
                   rel="noreferrer"
@@ -1880,7 +1970,11 @@ const App = () => {
 
                 {/* Instagram */}
                 <a
-                  href="https://instagram.com/contentflowlaunch"
+                  onMouseEnter={() => setCursorVariant("hover")}
+                  onMouseLeave={() => setCursorVariant("default")}
+                  href="https://instagram.com/contentflow.launch"
+                  target="_blank"
+                  rel="noreferrer"
                   className="rounded-xl border border-white/20 bg-white/[0.05] p-6 transition-all duration-200 hover:border-prime/40"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-prime">
