@@ -259,9 +259,7 @@ const App = () => {
             <nav className="relative mx-auto flex items-center justify-between rounded-xl border border-white/20 bg-white/[0.02] backdrop-blur-xl p-2">
               {/* Logo */}
               <div className="flex items-center gap-2">
-                <div className="p-1.5 px-2 rounded-lg bg-prime text-white font-medium">
-                  CF
-                </div>
+                <img src="/Logo.webp" alt="" className="h-10" />
 
                 <div>
                   <h2 className="text-base font-medium leading-none">
@@ -1905,9 +1903,7 @@ const App = () => {
               {/* Logo */}
               <div>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-prime font-medium">
-                    CF
-                  </div>
+                  <img src="/Logo.webp" alt="" className="h-12" />
 
                   <div>
                     <h4 className="text-lg font-medium">Content Flow Launch</h4>
