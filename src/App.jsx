@@ -7,7 +7,6 @@ import Cal from "@calcom/embed-react";
 import { getCalApi } from "@calcom/embed-react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-import { Analytics } from "@vercel/analytics/react"
 import "remixicon/fonts/remixicon.css";
 
 // Components
